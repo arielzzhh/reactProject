@@ -4,6 +4,10 @@ import axios from "axios";
 import { Grid,Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../routes/ROUTES";
+import { Token, Try } from "@mui/icons-material";
+import { toast } from "react-toastify";
+
+
 let first ;
 let last ;
 let three;
@@ -15,6 +19,7 @@ let image;
 
 const ProfilePage = () => {
   const { login, setLogin } = useContext(LoginContext);
+  const [image, setImage] = useState('');
  
 
 
@@ -33,8 +38,8 @@ useEffect(()=>{
      five = response.data.address.state;
      six = response.data.address.street;
      seven = response.data._id;
-     image = response.data.image.url
-    console.log(image)
+     const imageData = response.data.image.url;
+      setImage(imageData);
   })
   .catch(error => {
     console.log(error)
@@ -52,6 +57,55 @@ useEffect(()=>{
 
 
 )
+
+
+
+
+async function deleteUser  (){
+
+
+  try {
+
+   await axios.delete(`/users/${login._id}`,{
+    headers: {
+      'x-auth-token': localStorage.getItem('token'), 
+
+
+  
+    }} )
+console.log('deleted')
+
+toast.success('card got deleted', {
+  position: "top-right",
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "light",
+  });
+
+    
+  } catch (error) {
+    console.log(error)
+    toast.error('there was some kind of problem', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+
+
+    
+  }
+
+
+}
 
 
 
@@ -78,10 +132,14 @@ useEffect(()=>{
       <Grid item xs={6}>street</Grid>      <Grid item xs={6}>{six}</Grid>
       <Grid item xs={6}>Id</Grid>      <Grid item xs={6}>{seven}</Grid>
 
+      <Button onClick={()=>{ navigate(ROUTES.EditUser) }} style={{width:'50%'}} xs={12}>edit User</Button>    
       <Button onClick={()=>{
-      navigate(ROUTES.EditUser)
+       deleteUser();
+       navigate(ROUTES.ABOUT);
 
-      }} style={{width:'100%'}} xs={12}>edit User</Button>    
+
+      }}  style={{width:'50%'}} xs={12}>Delete user</Button>    
+
 
 
   

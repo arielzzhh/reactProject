@@ -22,7 +22,7 @@ const Router = () => {
       <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
       <Route path={ROUTES.ABOUT} element={<AboutMe/>} />
       <Route path={ROUTES.EditUser} element={<EditUser/>} />
-      <Route path={ROUTES.EDITCARD+':id'} element={<EditCardPage/>} />  
+      <Route path={`${ROUTES.EDITCARD}/:id`} element={<EditCardPage/>} />  
       <Route path={ROUTES.CREATECARD} element={<CreateCardPage/>} />  
       <Route path={ROUTES.MyCards} element={<MyCards/>} /> 
       
