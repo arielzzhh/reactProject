@@ -47,11 +47,10 @@ const EditCardPage = () => {
       .get("/cards/" + id)
       .then(({ data }) => {
         if (data.user_id == login._id) {
-          //the logged in user is the user that created the card
-        } else {
-          //not the same user
-          //navigate to home page
-          //toast
+
+
+         } else {
+         
         }
        
         setInputsValue(fromServer(data));
@@ -68,23 +67,7 @@ const EditCardPage = () => {
     }));
   };
 
-  const handleInputsBlur = (e) => {
-    const { error } = validateSchema[e.target.id]({
-      [e.target.id]: inputsValue[e.target.id],
-    });
-    console.log({ error });
-    if (error) {
-      setErrors((cErrors) => ({
-        ...cErrors,
-        [e.target.id]: error.details[0].message,
-      }));
-    } else {
-      setErrors((cErrors) => {
-        delete cErrors[e.target.id];
-        return { ...cErrors };
-      });
-    }
-  };
+
 
   return (
     <Box
@@ -110,7 +93,6 @@ const EditCardPage = () => {
               label={keyName}
               value={inputsValue[keyName]}
               onChange={handleInputsChange}
-              onBlur={handleInputsBlur}
               errors={errors[keyName]}
             />
           ))}
@@ -123,7 +105,7 @@ const EditCardPage = () => {
         sx={{ mt: 3, mb: 2 }}
         disabled={Object.keys(errors).length > 0}
       >
-        Sign Up
+        Edit Your Card 
       </Button>
     </Box>
   );

@@ -147,7 +147,7 @@ const HeaderComponent = ({ isDarkTheme, onThemeChange }) => {
             Ariel-Bz
           </Typography>
           <Links />
-          <FilterComponent />
+         
           <Box
             sx={{
               my: 2,

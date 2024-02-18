@@ -5,19 +5,30 @@ import Paper from "@mui/material/Paper";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
 import CoffeeIcon from "@mui/icons-material/Coffee";
 import DiamondIcon from "@mui/icons-material/Diamond";
-import Links from "./ui/Links";
-import FooterIcon from "../../components/FooterIcon";
 import ROUTES from "../../routes/ROUTES";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import LoginContext from "../../hooks/context/loginContext";
+import { useContext } from "react";
 
 const FooterComponent = () => {
+  const navigate =useNavigate();
+  const   {login,setlogin} =useContext(LoginContext)
+
+function handleMove (where){
+  navigate (where);
+}
+
   return (
     <Paper elevation={4} sx={{ position: "sticky", mt: 2 }}>
       <BottomNavigation showLabels>
+    <BottomNavigationAction onClick={()=>{handleMove(ROUTES.start);}}label="home" icon={<AcUnitIcon />} />
+    <BottomNavigationAction onClick={()=>{handleMove(ROUTES.ABOUT);}}label="aboutMe" icon={<AcUnitIcon />} />
+    <BottomNavigationAction disabled={!login} onClick={()=>{handleMove(ROUTES.ABOUT);}}  to={ROUTES.start} label="logOut" icon={<AcUnitIcon />} />
 
 
-      <Link>  <BottomNavigationAction label="aboutMe" icon={<AcUnitIcon />} /></Link>
-   
+
+     
       </BottomNavigation>
     </Paper>
   );

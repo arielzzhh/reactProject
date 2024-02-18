@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import ROUTES from "../../routes/ROUTES";
 import normalizeHome from "./normalizeHome";
 import LoginContext from "../../hooks/context/loginContext";
+import { toast } from "react-toastify";
 
 
 const HomePage = () => {
@@ -32,19 +33,45 @@ const HomePage = () => {
     return <Typography>not Found</Typography>;
   }
   const handleDeleteCard = async (id) => {
-    setDataFromServer((currentDataFromServer) =>
-      currentDataFromServer.filter((card) => card._id !== id))
+ 
 
     try {
     let response =  await  axios.delete(`/cards/${id}`,{header:{ 
      'x-auth-token':`${localStorage.getItem('token')}`
 
+     
+
     }})
     console.log(response)
+    setDataFromServer((currentDataFromServer) =>
+    currentDataFromServer.filter((card) => card._id !== id))
+    toast.success("deleted from server ", {
+      position: "bottom-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      
+      });
 
       
     } catch (error) {
-      console.log(error)
+        console.log(error);
+      toast.error(' this is not your card ,you cant delete it   ', {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+
+
     }
 
 
@@ -63,9 +90,15 @@ const HomePage = () => {
         if (cardIndex >= 0) {
           cDataFromServer[cardIndex] = data;
         }
+
+        console.log( data);
+
         return [...cDataFromServer]; 
+
+
       });
     } catch (err) {
+      console.log(err);
 
     }
   };

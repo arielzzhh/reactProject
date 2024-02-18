@@ -9,7 +9,7 @@ import EditCardPage from "../pages/EditCardPage/EditCardPage";
 import ProfilePage from "../pages/ProfilePage";
 import AuthGuard from "../guard/AuthGuard";
 import BizGuard from "../guard/BizGuard";
-import Welcome from "../pages/Welcome";
+import Welcome from "../pages/WelcomePage/Welcome";
 import EditUser from "../pages/EditUser/EditUser";
 import CreateCardPage from "../pages/CreateCardPage/CreateCardPage";
 import MyCards from "../pages/MyCards";
@@ -22,7 +22,7 @@ const Router = () => {
       <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
       <Route path={ROUTES.ABOUT} element={<AboutMe/>} />
       <Route path={ROUTES.EditUser} element={<EditUser/>} />
-      <Route path={ROUTES.EDITCARD} element={<EditCardPage/>} />  
+      <Route path={ROUTES.EDITCARD+':id'} element={<EditCardPage/>} />  
       <Route path={ROUTES.CREATECARD} element={<CreateCardPage/>} />  
       <Route path={ROUTES.MyCards} element={<MyCards/>} /> 
       

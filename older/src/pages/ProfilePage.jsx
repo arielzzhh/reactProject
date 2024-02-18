@@ -4,21 +4,18 @@ import axios from "axios";
 import { Grid,Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../routes/ROUTES";
-
-let res ;
-let first;
+let first ;
 let last ;
 let three;
 let four;
 let five;
 let six;
 let seven;
+let image;
 
 const ProfilePage = () => {
   const { login, setLogin } = useContext(LoginContext);
-  const adminHeader = {
-    'x-auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTBhZTc1OWRiMzgxM2E2NTAyZmMyZmMiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2OTg4NDI5NTJ9.En62ry5Gu9FMBAvxyltv0eRYhpJIJs_aW06QAtxXRck'
-  };
+ 
 
 
   let navigate =useNavigate();
@@ -36,7 +33,8 @@ useEffect(()=>{
      five = response.data.address.state;
      six = response.data.address.street;
      seven = response.data._id;
-    console.log(six)
+     image = response.data.image.url
+    console.log(image)
   })
   .catch(error => {
     console.log(error)
@@ -69,8 +67,8 @@ useEffect(()=>{
 
 
 
-  return(<div style={{display:'flex' }}>
-    <img style={{width:'100%', height:'45vh'}}></img>
+  return(<div style={{display:'flex' }}> 
+    <img src={image} style={{width:'100%', height:'45vh'}}></img>
     <Grid container style={{width:'100%' ,height:'45vh'}}>
       <Grid item xs={6}>firstName</Grid> <Grid item xs={6}>{first}</Grid>
       <Grid item xs={6}>lastname</Grid>  <Grid item xs={6}>{last}</Grid>

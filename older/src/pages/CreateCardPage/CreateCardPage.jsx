@@ -1,11 +1,14 @@
-import { useState,useNavigate } from "react";
+import { useState,useNavigate,useEffect } from "react";
 import { Grid,TextField,Button,Box } from "@mui/material";
 import axios from "axios";
-import { useEffect } from "react";
 import  normalizeCreateCard from './normalizeCreateCard.js'
 import ROUTES from "../../routes/ROUTES.js";
+import { toast } from "react-toastify";
+
 
 export function CreateCardPage (){
+
+  const navigate = useNavigate;
 
     const [inputsValue, setInputsValue] = useState({
         title: "",
@@ -86,16 +89,40 @@ export function CreateCardPage (){
 
         await axios.post('/cards',normalizeCreateCard(inputsValue))
 
+        navigate(ROUTES.HOME)
 
+        toast.success('card was created ', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
 
+        
 
-        console.log('card was added ') 
-       // navigate(ROUTES.HOME)
-
+        
+     
 
         
        } catch (error) {
-        console.log("error from axios", error);
+        toast.error('error from server ', {
+          position: "bottom-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+
+          console.log(error)
+
+
 
         
        }
