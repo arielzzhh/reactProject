@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import { Box, Avatar, Typography, Grid, Button } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import axios from "axios";
@@ -7,8 +7,13 @@ import TextInputComponent from "../../components/TextInputComponent";
 import validateSchema from "../../validation/cardValidation";
 import LoginContext from "../../hooks/context/loginContext";
 import { fromServer } from "./normalizeEdit";
+import ROUTES from "../../routes/ROUTES";
+import { toast } from "react-toastify";
 
 const EditCardPage = () => {
+
+    const navigate =useNavigate();
+
   const [inputsValue, setInputsValue] = useState({
     title: "",
     subTitle: "",
@@ -47,9 +52,23 @@ const EditCardPage = () => {
       .get("/cards/" + id)
       .then(({ data }) => {
         if (data.user_id == login._id) {
-
+        
 
          } else {
+
+          navigate(ROUTES.HOME)
+
+          toast.error('this is not your card', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+        
          
         }
        
@@ -68,9 +87,20 @@ const EditCardPage = () => {
   };
 
 
+  async function Submit (){   
+
+
+
+
+  }
+
+
+
+
+
 
   return (
-    <Box
+    <Box  component="form" onSubmit={Submit} noValidate
       sx={{
         marginTop: 8,
         display: "flex",
@@ -103,7 +133,6 @@ const EditCardPage = () => {
         fullWidth
         variant="contained"
         sx={{ mt: 3, mb: 2 }}
-        disabled={Object.keys(errors).length > 0}
       >
         Edit Your Card 
       </Button>

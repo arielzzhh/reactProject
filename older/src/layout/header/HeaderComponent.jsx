@@ -71,13 +71,10 @@ const HeaderComponent = ({ isDarkTheme, onThemeChange }) => {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={()=>{navigate('/profile') }}>Profile</MenuItem>
-      <MenuItem onClick={()=>{
-      localStorage.clear()
-      setLogin(null);
-      navigate('/register')
+      <MenuItem onClick={()=>{localStorage.clear()
+       setLogin(null)
+        navigate('/register')
       }} >log Out</MenuItem>
-      <Divider></Divider>
-      <MenuItem onClick={()=>{}} >deleteUser</MenuItem>
     </Menu>
   );
 

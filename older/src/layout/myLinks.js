@@ -2,10 +2,10 @@ import ROUTES from "../routes/ROUTES";
 
 
 
-const VistiorFooter =[{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" },]
-const loginFooter =[{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" },]
+const VistiorFooter =[{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "sdasdsd me" },]
+const loginFooter =[{ to: ROUTES.ABOUT, children: "Aboutasdsad me" },{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" },]
 const bizFooter = [{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" },]
-const AdminFooter =[{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" }, ]
+const admingFooter =[{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" }, ]
 
 
 
@@ -22,4 +22,4 @@ const loggedOut = [{ to: ROUTES.REGISTER, children: "Register page" },{ to: ROUT
 
 const biz = [{ to: ROUTES.CREATECARD, children: "createCard" }];
 
-export { visitor, logedIn, loggedOut, biz,VistiorFooter,loginFooter ,bizFooter,AdminFooter};
+export { visitor, logedIn, loggedOut, biz,VistiorFooter,loginFooter ,bizFooter,admingFooter};

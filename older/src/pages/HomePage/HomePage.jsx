@@ -78,6 +78,7 @@ const HomePage = () => {
   };
 
   const handleEditCard = (id) => {
+    
     navigate(`${ROUTES.EDITCARD}/${id}`);
   };
 

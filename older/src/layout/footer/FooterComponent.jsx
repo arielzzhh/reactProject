@@ -20,6 +20,16 @@ function handleMove (where){
   navigate (where);
 }
 
+function logOut (){
+  setlogin(null)
+  handleMove(ROUTES.ABOUT);
+  
+
+
+
+}
+
+
   return (
     <Paper elevation={4} sx={{ position: "sticky", mt: 2 }}>
       <BottomNavigation showLabels>
@@ -27,7 +37,6 @@ function handleMove (where){
 
     <BottomNavigationAction onClick={()=>{handleMove(ROUTES.start);}} label="home" icon={<AcUnitIcon />} />
     <BottomNavigationAction onClick={()=>{handleMove(ROUTES.ABOUT);}}label="aboutMe" icon={<AcUnitIcon />} />
-    <BottomNavigationAction disabled={!login} onClick={()=>{handleMove(ROUTES.ABOUT);}}  to={ROUTES.start} label="logOut" icon={<AcUnitIcon />} />
 
 
 

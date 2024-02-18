@@ -4,7 +4,7 @@ import ROUTES from "./ROUTES";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
 import NotFoundPage from "../pages/NotFoundPage";
-import AboutMe from "../pages/AboutMe";
+import AboutUsPage from "../pages/AboutMePage/AboutMe";
 import EditCardPage from "../pages/EditCardPage/EditCardPage";
 import ProfilePage from "../pages/ProfilePage";
 import AuthGuard from "../guard/AuthGuard";
@@ -20,7 +20,7 @@ const Router = () => {
       <Route path={ROUTES.HOME} element={<HomePage />} />
       <Route path={ROUTES.LOGIN} element={<LoginPage />} />
       <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
-      <Route path={ROUTES.ABOUT} element={<AboutMe/>} />
+      <Route path={ROUTES.ABOUT} element={<AboutUsPage/>} />
       <Route path={ROUTES.EditUser} element={<EditUser/>} />
       <Route path={`${ROUTES.EDITCARD}/:id`} element={<EditCardPage/>} />  
       <Route path={ROUTES.CREATECARD} element={<CreateCardPage/>} />  

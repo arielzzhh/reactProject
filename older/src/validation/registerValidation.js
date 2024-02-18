@@ -39,7 +39,7 @@ const houseNumberSchema = Joi.object({
 
 
 const zipSchema = Joi.object({
-  zip: Joi.number().min(2).max(256).required(),
+  zip: Joi.number().min(2).max(99999999).required(),
 });
 
 const emailSchema = Joi.object({

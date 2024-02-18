@@ -34,10 +34,6 @@ export function MyCards (){
          onLike=""
 
         
-        
-        
-        
-        
         ></Cardi>
 
 
