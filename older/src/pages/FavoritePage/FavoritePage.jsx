@@ -34,11 +34,7 @@ export function FavoritePage (){
         });
     }, [])
 
-    const dataFromServerFiltered = normilizeFavorite(
-      dataFromServer,
-      login 
-      ? login._id : undefined
-    );
+  
    
 
 
