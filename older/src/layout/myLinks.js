@@ -1,19 +1,25 @@
 import ROUTES from "../routes/ROUTES";
 
-//which is depnded on which 
 
 
-const always = [
-  { to: ROUTES.HOME, children: "Home page" },
-  { to: ROUTES.ABOUT, children: "About Us page" },
-];
-const logedIn = [{ to: "/profile", children: "Profile page" }];
+const VistiorFooter =[{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" },]
+const loginFooter =[{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" },]
+const bizFooter = [{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" },]
+const AdminFooter =[{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" },{ to: ROUTES.ABOUT, children: "About me" }, ]
 
-const loggedOut = [
-  { to: ROUTES.REGISTER, children: "Register page" },
-  { to: ROUTES.LOGIN, children: "Login page" },
-];
 
-const biz = [{ to: ROUTES.CREATECARD, children: "Create page" }];
 
-export { always, logedIn, loggedOut, biz };
+
+
+
+
+
+
+const visitor = [ { to: ROUTES.ABOUT, children: "About me" },];
+const logedIn = [{ to: "/profile", children: "Profile" },{ to: ROUTES.HOME, children: "B-cards" },];
+
+const loggedOut = [{ to: ROUTES.REGISTER, children: "Register page" },{ to: ROUTES.LOGIN, children: "Login page" },];
+
+const biz = [{ to: ROUTES.CREATECARD, children: "createCard" }];
+
+export { visitor, logedIn, loggedOut, biz,VistiorFooter,loginFooter ,bizFooter,AdminFooter};

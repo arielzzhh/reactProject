@@ -1,6 +1,5 @@
 import Joi from "joi";
 
-import { validateEmailLogin, validatePasswordLogin } from "./loginValidation";
 
 const firstSchema = Joi.object({
   first: Joi.string().min(2).max(256).required(),
@@ -9,14 +8,6 @@ const firstSchema = Joi.object({
 const lastSchema = Joi.object({
   last: Joi.string().min(2).max(256).required(),
 });
-
-
-
-
-
-
-
-
 
 const altSchema = Joi.object({
   alt: Joi.string().min(2).max(256)
@@ -75,6 +66,9 @@ const phoneSchema = Joi.object({
 });
 
 
+const imageSchema = Joi.object({
+  image: Joi.string().min(7).max(20).required(),
+});
 
 
 
@@ -95,6 +89,7 @@ const validacitySchema = (city) => citySchema.validate(city);
 const validatestreetSchema = (street) => streetSchema.validate(street);
 const validatehouseNumberSchema = (houseNumber) => houseNumberSchema.validate(houseNumber);
 const validatezipSchema = (zip) => zipSchema.validate(zip);
+const validatimageSchema=(image)=> imageSchema.validate(image);
 
 
 
@@ -113,7 +108,8 @@ const validateSchema = {
   city: validacitySchema,
   street:validatestreetSchema,
   houseNumber: validatehouseNumberSchema,
-  zip:validatezipSchema
+  zip:validatezipSchema,
+  image:validatimageSchema
 
 };
 

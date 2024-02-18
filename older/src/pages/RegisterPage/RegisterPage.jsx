@@ -21,7 +21,6 @@ const adminHeader = {
 };
 
 const RegisterPage = () => {
-
   const [isChecked, setIsChecked] = useState(false);
   const handleChange = (event) => {
     setIsChecked(event.target.checked);
@@ -57,6 +56,9 @@ const RegisterPage = () => {
     email: "",
     password: "",
     phone: "",
+    url: "",
+    alt: "",
+    state: "",
     country: "",
     city: "",
     street: "",
@@ -96,34 +98,25 @@ const RegisterPage = () => {
 
 
 
-  async function  returnAllInformation(){
-    let spesific = await axios.get("/users",{adminHeader})
-  
-
-    try {
-      console.log('sussed')
-      return spesific
-      
-    } catch (error) {
-  console.log('eror')
-
-      
-    }
-
-   
-
-    }
 
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      await axios.post("/users", normalizeRegister(inputsValue),);
+      await axios.post("/users", normalizeRegister(inputsValue), {
+        headers: {
+          'x-auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTBhZTc1OWRiMzgxM2E2NTAyZmMyZmMiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2OTg4NDI5NTJ9.En62ry5Gu9FMBAvxyltv0eRYhpJIJs_aW06QAtxXRck', 
       
-      navigate(ROUTES.LOGIN);
+        }
+      } );
+      console.log('registerd')
+      navigate(ROUTES.HOME);
+      
     } catch (err) {
       console.log("error from axios", err);
+
     }
   };
   return (

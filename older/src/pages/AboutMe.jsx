@@ -1,12 +1,22 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import Typography from "@mui/material/Typography";
+import LoginContext from "../hooks/context/loginContext";
+import { Login } from "@mui/icons-material";
 
 const AboutUsPage = () => {
+  const {login,setLogin} =useContext(LoginContext)
+
+
+
+
   return (
     <Fragment>
       <Typography variant="h1">About me- ariel astangelov</Typography>
-      <Typography variant="h2">hello my name is ariel astangelov and i made this website as a demnstration of what my capabitities are </Typography>
+      {console.log(login)}
+      <Typography >hllo my name and this is my bizz-bcards website here you could sign up and then sign with  </Typography>
     </Fragment>
+
+    
   );
 };
 

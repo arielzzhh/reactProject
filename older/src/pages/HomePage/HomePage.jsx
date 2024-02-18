@@ -31,11 +31,23 @@ const HomePage = () => {
   if (!dataFromServerFiltered || !dataFromServerFiltered.length) {
     return <Typography>not Found</Typography>;
   }
-  const handleDeleteCard = (id) => {
+  const handleDeleteCard = async (id) => {
     setDataFromServer((currentDataFromServer) =>
-      currentDataFromServer.filter((card) => card._id !== id)
-    );
-    console.log({ dataFromServerFiltered });
+      currentDataFromServer.filter((card) => card._id !== id))
+
+    try {
+    let response =  await  axios.delete(`/cards/${id}`,{header:{ 
+     'x-auth-token':`${localStorage.getItem('token')}`
+
+    }})
+    console.log(response)
+
+      
+    } catch (error) {
+      console.log(error)
+    }
+
+
   };
 
   const handleEditCard = (id) => {

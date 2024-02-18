@@ -15,18 +15,7 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import PropTypes from "prop-types";
 
-const Cardi = ({
-  title,
-  subtitle,
-  img,
-  phone,
-  address,
-  cardNumber,
-  id,
-  liked,
-  onDelete,
-  onEdit,
-  onLike,
+const Cardi = ({ title,subtitle, img, phone, address,cardNumber,id,liked,onDelete, onEdit, onLike,
 }) => {
 
   const handleDeleteClick = () => {
@@ -70,7 +59,7 @@ const Cardi = ({
           </Typography>
           {cardNumber}
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
           <Box>
             <IconButton onClick={handleDeleteClick}>
               <DeleteIcon />
@@ -80,16 +69,7 @@ const Cardi = ({
             </IconButton>
           </Box>
           <Box>
-            <IconButton>
-              <LocalPhoneIcon />
-            </IconButton>
-            <IconButton onClick={handleLikeClick}>
-              <FavoriteIcon color={liked ? "error" : "inherit"} />
-            </IconButton>
-          </Box>
-        </Box>
-      </CardContent>
-    </Card>
+            <IconButton onClick={handleLikeClick}> <FavoriteIcon color={liked ? "error" : "inherit"} /> </IconButton> </Box> </Box></CardContent> </Card>
   );
 };
 

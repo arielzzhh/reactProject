@@ -10,6 +10,9 @@ import ProfilePage from "../pages/ProfilePage";
 import AuthGuard from "../guard/AuthGuard";
 import BizGuard from "../guard/BizGuard";
 import Welcome from "../pages/Welcome";
+import EditUser from "../pages/EditUser/EditUser";
+import CreateCardPage from "../pages/CreateCardPage/CreateCardPage";
+import MyCards from "../pages/MyCards";
 const Router = () => {
   return (
     <Routes>
@@ -18,23 +21,15 @@ const Router = () => {
       <Route path={ROUTES.LOGIN} element={<LoginPage />} />
       <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
       <Route path={ROUTES.ABOUT} element={<AboutMe/>} />
-     
-      <Route
-        path={`${ROUTES.EDITCARD}/:id`}
-        element={
-          <BizGuard>
-            <EditCardPage />
-          </BizGuard>
-        }
-      />
-      <Route
-        path="/profile"
-        element={
-          <AuthGuard>
-            <ProfilePage />
-          </AuthGuard>
-        }
-      />
+      <Route path={ROUTES.EditUser} element={<EditUser/>} />
+      <Route path={ROUTES.EDITCARD} element={<EditCardPage/>} />  
+      <Route path={ROUTES.CREATECARD} element={<CreateCardPage/>} />  
+      <Route path={ROUTES.MyCards} element={<MyCards/>} /> 
+      
+
+
+
+      <Route path="/profile" element={ <AuthGuard> <ProfilePage /> </AuthGuard> }  />
   
       
     

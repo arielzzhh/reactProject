@@ -16,14 +16,12 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { Divider, Switch } from "@mui/material";
 import Links from "./ui/Links";
-import LeftDrawerComponent from "./ui/LeftDrawerComponent";
 import { useState,useContext } from "react";
 import FilterComponent from "./ui/FilterComponent";
 import { useNavigate } from "react-router-dom";
 const HeaderComponent = ({ isDarkTheme, onThemeChange }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const { setLogin,login } = useContext(LoginContext);
 
@@ -53,12 +51,7 @@ const HeaderComponent = ({ isDarkTheme, onThemeChange }) => {
     onThemeChange(event.target.checked);
   };
 
-  const handleOpenDrawerClick = () => {
-    setIsOpen(true);
-  };
-  const handleCloseDrawerClick = () => {
-    setIsOpen(false);
-  };
+
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -144,23 +137,14 @@ const HeaderComponent = ({ isDarkTheme, onThemeChange }) => {
     <Box sx={{ flexGrow: 1, mb: 2 }}>
       <AppBar position="static">
         <Toolbar>
-        <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-            onClick={handleOpenDrawerClick}
-          >
-            <MenuIcon />
-          </IconButton>
+  
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            LOGO
+            Ariel-Bz
           </Typography>
           <Links />
           <FilterComponent />
@@ -177,35 +161,9 @@ const HeaderComponent = ({ isDarkTheme, onThemeChange }) => {
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge badgeContent={0} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={0} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
+        
+          
+            <IconButton size="large"  edge="end"aria-label="account of current user" aria-controls={menuId} aria-haspopup="true"   onClick={handleProfileMenuOpen}   color="inherit" >   <AccountCircle /> </IconButton>
            
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
@@ -220,14 +178,11 @@ const HeaderComponent = ({ isDarkTheme, onThemeChange }) => {
               <MoreIcon />
             </IconButton>
           </Box>
-        </Toolbar>
+          </Toolbar>
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
-      <LeftDrawerComponent
-        isOpen={isOpen}
-        onCloseDrawer={handleCloseDrawerClick}
-      />
+     
     </Box>
   );
 };

@@ -3,9 +3,13 @@ const ROUTES = {
   ABOUT: "/about",
   REGISTER: "/register",
   LOGIN: "/login",
-  EDITCARD: "/edit-card",
+  EDITCARD: "/editcard",
+  Card :"/card",
   CREATECARD: "/createcard",
-  HOME :'/Home'
+  HOME :'/Home',
+  EditUser :'/EditUser',
+  MyCards :'/myCards'
+  
  
 };
 export default ROUTES;
