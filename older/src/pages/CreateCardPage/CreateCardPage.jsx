@@ -1,4 +1,4 @@
-import { useState,useNavigate,useEffect } from "react";
+import { useState,useEffect } from "react";
 import { Grid,TextField,Button,Box,Alert } from "@mui/material";
 import axios from "axios";
 import  normalizeCreateCard from './normalizeCreateCard.js'
@@ -6,10 +6,11 @@ import ROUTES from "../../routes/ROUTES.js";
 import { toast } from "react-toastify";
 import validateCreateCardSchema from '../../validation/createCardValidation.js'
 
+import { useNavigate } from "react-router-dom";
 
 export function CreateCardPage (){
 
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
     const [inputsValue, setInputsValue] = useState({
         title: "",

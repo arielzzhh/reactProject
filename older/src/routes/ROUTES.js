@@ -8,8 +8,11 @@ const ROUTES = {
   CREATECARD: "/createcard",
   HOME :'/Home',
   EditUser :'/EditUser',
-  MyCards :'/myCards'
-  
- 
+  MyCards :'/myCards',
+  admin :'/admin',
+  Favorite:'Favorite'
 };
 export default ROUTES;
+
+
+

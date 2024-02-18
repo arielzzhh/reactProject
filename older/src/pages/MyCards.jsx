@@ -6,28 +6,27 @@ export function MyCards (){
     const [myCards, setMyCards] = useState([]);
 
 
-  
-    useEffect(() => {
-        async function fetchMyCards() {
-          try {
-            const response = await axios.get('/cards/my-cards');
-            setMyCards(response.data);
-          } catch (error) {
-            console.error('Error fetching my cards:', error);
-    }}})
-    
+    useEffect(
+      console.log('ariel')
+      ,)
+
+
+
+
+
+
+     
     return (
         <>
         
-
         <Cardi
-         title=""
-         subtitle=""
-         img=""
-         phone=""
-         address=""
-         cardNumber=""
-         id=""
+         title="dasdasd"
+         subtitle="dsadasd"
+         img="sadsad"
+         phone="sadsad"
+         address="asdsad"
+         cardNumber="dasdsad"
+         id="dsad"
          liked=""
          onDelete=""
          onEdit=""
@@ -55,9 +54,9 @@ export function MyCards (){
 
 
 
-}
 
-  
+
+}
      
         export default MyCards;
 

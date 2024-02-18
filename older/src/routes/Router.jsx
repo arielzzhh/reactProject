@@ -13,6 +13,8 @@ import Welcome from "../pages/WelcomePage/Welcome";
 import EditUser from "../pages/EditUser/EditUser";
 import CreateCardPage from "../pages/CreateCardPage/CreateCardPage";
 import MyCards from "../pages/MyCards";
+import CrmPage from "../pages/CrmPage/CrmPage";
+import FavoritePage from "../pages/FavoritePage/FavoritePage";
 const Router = () => {
   return (
     <Routes>
@@ -24,8 +26,9 @@ const Router = () => {
       <Route path={ROUTES.EditUser} element={<EditUser/>} />
       <Route path={`${ROUTES.EDITCARD}/:id`} element={<EditCardPage/>} />  
       <Route path={ROUTES.CREATECARD} element={<CreateCardPage/>} />  
-      <Route path={ROUTES.MyCards} element={<MyCards/>} /> 
-      
+      <Route path={ROUTES.admin} element={<CrmPage/>} /> 
+      <Route path={ROUTES.MyCards} element={<FavoritePage/>} /> 
+
 
 
 
